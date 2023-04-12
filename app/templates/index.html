@@ -16,11 +16,12 @@
     </form>
     {% endif %}
     {% for post in posts %}
-    <table>
-        <tr valign="top">
-            <td><img src="{{ post.author.avatar(36) }}"></td>
-            <td><p><a href="{{ url_for('profile', username=post.author.username) }}">{{ post.author.username }}</a> says: <b>{{ post.body }}</b></p></td>
-        </tr>
-    </table>
+        {% include '_post.html' %}
     {% endfor %}
+    {% if prev_url %}
+        <a href="{{ prev_url }}">Newer posts</a>
+    {% endif %}
+    {% if next_url %}
+        <a href="{{ next_url }}">Older posts</a>
+    {% endif %}
 {% endblock %}
