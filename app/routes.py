@@ -70,22 +70,6 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-# @app.route('/post', methods=['GET', 'POST'])
-# @login_required
-# def add_post():
-#     form = PostForm()
-#     if form.validate_on_submit():
-#         user_id = current_user.id
-#         post = Post(body=form.text.data, user_id=user_id)
-#         db.session.add(post)
-#         db.session.commit()
-#         next_page = request.args.get('next')
-#         if not next_page or url_parse(next_page).netloc != '':
-#             next_page = url_for('index')
-#         return redirect(next_page)
-#     return render_template('post.html', title='Register', form=form)
-
-
 @app.route('/user/<username>')
 @login_required
 def profile(username):
